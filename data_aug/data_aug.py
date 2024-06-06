@@ -159,7 +159,8 @@ class RandomScale(object):
         
         
         
-        canvas = np.zeros(img_shape, dtype = np.uint8)
+        # canvas = np.zeros(img_shape, dtype = np.uint8)
+        canvas = np.full(img_shape, 125, dtype=np.uint8)
         
         y_lim = int(min(resize_scale_y,1)*img_shape[0])
         x_lim = int(min(resize_scale_x,1)*img_shape[1])
@@ -374,7 +375,7 @@ class Translate(object):
         
             
         # canvas = np.zeros(img_shape).astype(np.uint8)
-        canvas = np.full(img_shape, 100, dtype=np.uint8)
+        canvas = np.full(img_shape, 125, dtype=np.uint8)
         
         #get the top-left corner co-ordinates of the shifted box 
         corner_x = int(translate_factor_x*img.shape[1])
