@@ -133,7 +133,7 @@ def rotate_im(image, angle):
     M[1, 2] += (nH / 2) - cY
 
     # perform the actual rotation and return the image
-    image = cv2.warpAffine(image, M, (nW, nH), borderValue=(125, 125, 125))
+    image = cv2.warpAffine(image, M, (nW, nH))
 
 #    image = cv2.resize(image, (w,h))
     return image
