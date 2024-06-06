@@ -135,7 +135,7 @@ class RandomScale(object):
         
 
     def __call__(self, img, bboxes):
-    
+        
         
         #Chose a random digit to scale by 
         
@@ -282,8 +282,8 @@ class RandomTranslate(object):
             
             
         self.diff = diff
-
-    def __call__(self, img, bboxes):        
+        
+    def __call__(self, img, bboxes):  
         #Chose a random digit to scale by 
         img_shape = img.shape
         
@@ -296,8 +296,8 @@ class RandomTranslate(object):
         if not self.diff:
             translate_factor_y = translate_factor_x
             
-        canvas = np.zeros(img_shape).astype(np.uint8)
-    
+        canvas = np.full(img_shape, 125, dtype=np.uint8)
+       
     
         corner_x = int(translate_factor_x*img.shape[1])
         corner_y = int(translate_factor_y*img.shape[0])
@@ -373,8 +373,8 @@ class Translate(object):
         translate_factor_y = self.translate_y
         
             
-        canvas = np.zeros(img_shape).astype(np.uint8)
-
+        # canvas = np.zeros(img_shape).astype(np.uint8)
+        canvas = np.full(img_shape, 100, dtype=np.uint8)
         
         #get the top-left corner co-ordinates of the shifted box 
         corner_x = int(translate_factor_x*img.shape[1])
@@ -517,7 +517,7 @@ class Rotate(object):
         """
         
         angle = self.angle
-        print(self.angle)
+        
         
         w,h = img.shape[1], img.shape[0]
         cx, cy = w//2, h//2
